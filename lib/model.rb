@@ -11,3 +11,17 @@ end
 
 class Album < Model
 end
+
+
+
+# class Artist(input)
+#   def initialize
+#     @input = input
+#     @cds = []
+#   end
+
+
+#   def input
+#     @input
+#   end
+# end

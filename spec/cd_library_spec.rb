@@ -36,6 +36,31 @@ describe CD do
     end
   end
 
+  describe '.search_by_album' do
+    it 'searches the library by title and returns the CD object' do
+      new_artist1 = Artist.new("Whitney")
+      new_album1 = Album.new("Bodyguard")
+      test_cd1 = CD.create({:artist => new_artist1, :album => new_album1})
+      new_artist2 = Artist.new("Bobby")
+      new_album2 = Album.new("The Greatest")
+      test_cd2 = CD.create({:artist => new_artist2, :album => new_album2})
+      CD.search_by_album("The Greatest").should eq test_cd2
+   end
+  end
+
+  describe '.search_by_name' do
+    it 'searches the library by name and returns a CD object' do
+      new_artist1 = Artist.new("Whitney")
+      new_album1 = Album.new("Bodyguard")
+      test_cd1 = CD.create({:artist => new_artist1, :album => new_album1})
+      new_artist2 = Artist.new("Bobby")
+      new_album2 = Album.new("The Greatest")
+      test_cd2 = CD.create({:artist => new_artist2, :album => new_album2})
+      CD.search_by_name("Bobby").should eq [test_cd2]
+   end
+
+  end
+
   describe "#save" do
     it 'adds the new cd to the main cd array' do
       new_artist = Artist.new("Whitney")
@@ -64,6 +89,17 @@ describe CD do
       second_artist = Artist.new("Bobby")
       test_cd.add_artist(second_artist)
       test_cd.artist[1].should eq second_artist
+    end
+  end
+
+  describe '#add_album' do
+    it 'adds a new album to the cd object instance' do
+      new_artist = Artist.new("Whitney")
+      new_album = Album.new("Bodyguard")
+      test_cd = CD.create({:artist => new_artist, :album => new_album})
+      second_album = Album.new("Amazing Album")
+      test_cd.add_album(second_album)
+      test_cd.album[1].should eq second_album
     end
   end
 end
