@@ -19,9 +19,8 @@ class CD
    end
 
   def CD.search_by_album(title)
-    found_cd = []
-    found_cd = @@all_cds.select {|cd| cd.album[0].value == title}
-    found_cd[0]
+    found_cd = @@all_cds.select {|cd| cd.album[0] == title}
+    found_cd
   end
 
   def CD.search_by_name(name)
@@ -36,7 +35,9 @@ class CD
   def initialize(cd_info)
     @artist = [cd_info[:artist]]
     @album = [cd_info[:album]]
-    # @artist.cds << self
+    @artist.each do |artist|
+      artist.cds << self
+    end
   end
 
   def save

@@ -1,27 +1,14 @@
 class Model
-attr_reader :value
+attr_reader :value, :cds
 
   def initialize(value)
     @value = value
+    @cds = []
   end
 end
 
 class Artist < Model
 end
 
-class Album < Model
-end
 
 
-
-# class Artist(input)
-#   def initialize
-#     @input = input
-#     @cds = []
-#   end
-
-
-#   def input
-#     @input
-#   end
-# end
