@@ -1,8 +1,12 @@
-#CD Library
+CD Organizer
+======================
 
-###Goal
+March 13, 2014
 
-3/13/14
+Epicodus: Week4, Day4
+
+Lesson
+***********************
 
 Make a program for users to catalog and organize their CDs. They should be able to create a new CD, enter the album name and artist, list out all of their CDs, and search for a CD by album or artist.
 
